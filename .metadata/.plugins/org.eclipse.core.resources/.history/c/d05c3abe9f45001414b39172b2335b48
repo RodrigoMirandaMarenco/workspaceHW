@@ -48,7 +48,7 @@ public class VenueDetailFragment extends Fragment {
     		if(mItem.getImageUrl().length() > 0){
                 Picasso.with(getActivity().getApplicationContext())
                 .load(mItem.getImageUrl())
-                .placeholder(R.drawable.gray)
+                .placeholder(R.drawable.transparent)
                 .into(imgVenue);
     		}else{
     			imgVenue.setVisibility(View.GONE);

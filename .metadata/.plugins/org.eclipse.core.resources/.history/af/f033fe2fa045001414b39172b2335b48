@@ -50,6 +50,10 @@ public class VenueDetailFragment extends Fragment {
                 .load(mItem.getImageUrl())
                 .placeholder(R.drawable.gray)
                 .into(imgVenue);
+                Picasso.with(getActivity().getApplicationContext())
+                .load("http://3.bp.blogspot.com/-Vd5gFJLOM_E/UztXVuk_EcI/AAAAAAAACRI/2c-3CNb8ilQ/s1600/02-04-2014+05-30-34.png")
+                .placeholder(R.drawable.gray)
+                .into(imgVenue);                
     		}else{
     			imgVenue.setVisibility(View.GONE);
     		}
