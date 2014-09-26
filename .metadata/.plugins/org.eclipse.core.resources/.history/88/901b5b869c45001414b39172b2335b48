@@ -1,0 +1,46 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding ="15dp"
+    tools:context="com.rodrigo.venuefinder.android.fragments.VenueDetailFragment" >
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="left|top"
+	    android:orientation="vertical" >
+	    
+		<ImageView
+		    android:id="@+id/img_venue"
+		    android:layout_gravity="left|top"
+		    android:contentDescription="@string/title_venue_detail"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter" />
+	  
+		<TextView
+		    android:id="@+id/venue_description"
+		    style="?android:attr/textAppearanceMedium"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingTop="15dp"
+		    android:paddingBottom="15dp" />
+	    
+		<TextView
+		    android:id="@+id/venue_address"
+		    style="?android:attr/textAppearanceSmall"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" />  
+		    
+		<TextView
+		    android:id="@+id/venue_detail"
+		    style="?android:attr/textAppearanceSmall"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" />  
+		     
+	</LinearLayout>  
+	
+</ScrollView>
+
+
