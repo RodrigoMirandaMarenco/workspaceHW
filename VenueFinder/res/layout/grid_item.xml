@@ -1,17 +1,25 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop ="10dp"
+    android:paddingBottom ="10dp" >
 
      <TextView
-         android:id="@+id/txt_venue_name"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:gravity="left|center_vertical"
-         android:lines="2"
-         android:maxLines="2"
-         android:padding="5dp"
-         android:textColor="@android:color/black"
-         android:textSize="12sp" />
+        android:id="@+id/txt_venue_name"
+		style="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:textColor="@android:color/black" />
+     
+	<TextView
+		android:id="@+id/txt_venue_address"
+		style="?android:attr/textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="left|center_vertical"
+		android:textColor="@android:color/black" />
 
-</FrameLayout>
+</LinearLayout>

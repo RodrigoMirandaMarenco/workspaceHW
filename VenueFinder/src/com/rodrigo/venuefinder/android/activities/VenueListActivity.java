@@ -8,7 +8,6 @@ import android.support.v7.widget.ShareActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.gson.Gson;
 import com.rodrigo.venuefinder.android.Global;
 import com.rodrigo.venuefinder.android.R;
 import com.rodrigo.venuefinder.android.fragments.VenueDetailFragment;
@@ -24,7 +23,7 @@ public class VenueListActivity extends ActionBarActivity
     
     private Menu mOptionsMenu;
 
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
@@ -64,17 +63,13 @@ public class VenueListActivity extends ActionBarActivity
     	mVenue = v;
     	updateMenu();
         if (mTwoPane) {
-            Bundle arguments = new Bundle();
-            arguments.putString(VenueDetailFragment.ARG_VENUE_OBJECT, new Gson().toJson(v));
-            VenueDetailFragment fragment = new VenueDetailFragment();
-            fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.venue_detail_container, fragment)
+                    .replace(R.id.venue_detail_container, VenueDetailFragment.getInstance(v))
                     .commit();
 
         } else {
             Intent detailIntent = new Intent(this, VenueDetailActivity.class);
-            detailIntent.putExtra(VenueDetailFragment.ARG_VENUE_OBJECT, new Gson().toJson(v));
+            detailIntent.putExtra(Venue.class.getName(), v);
             startActivity(detailIntent);
         }
     }

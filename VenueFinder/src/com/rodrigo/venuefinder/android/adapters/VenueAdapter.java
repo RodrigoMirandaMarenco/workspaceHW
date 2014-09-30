@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.rodrigo.venuefinder.android.Global;
 import com.rodrigo.venuefinder.android.R;
 import com.rodrigo.venuefinder.android.model.Venue;
 
@@ -29,19 +30,22 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         if (view == null) {
             view = mInflater.inflate(R.layout.grid_item, parent, false);
             holder = new Holder();
-            holder.txt_VenueName = (TextView) view.findViewById(R.id.txt_venue_name);
+            holder.name = (TextView) view.findViewById(R.id.txt_venue_name);
+            holder.address = (TextView) view.findViewById(R.id.txt_venue_address);
             view.setTag(holder);
         } else {
             holder = (Holder) view.getTag();
         }
 
         Venue venue = getItem(position);
-        holder.txt_VenueName.setText(venue.getName());
+        holder.name.setText(venue.getName());
+        holder.address.setText(Global.getFullVenueAddress(venue, false));
 
         return view;
     }
 
     private static final class Holder {
-        public TextView txt_VenueName;
+        public TextView name;
+        public TextView address;
     }
 }

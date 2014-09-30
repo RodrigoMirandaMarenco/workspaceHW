@@ -17,7 +17,7 @@
 		    android:contentDescription="@string/title_venue_detail"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="fitCenter" />
+            android:scaleType="centerInside" />
 	  
 		<TextView
 		    android:id="@+id/txt_venue_description"

@@ -1,5 +1,6 @@
 <resources>
 
     <drawable name="transparent">#00000000</drawable>
+	<drawable name="gray">#C0C0C0</drawable>
 
 </resources>
