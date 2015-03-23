@@ -22,6 +22,8 @@ public class VenueListActivity extends ActionBarActivity
     private Venue mVenue;
     
     private Menu mOptionsMenu;
+    
+    private VenueListFragment mVenueListFragment;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,25 @@ public class VenueListActivity extends ActionBarActivity
         
         setContentView(R.layout.activity_venue_list);
 
-        if (findViewById(R.id.venue_detail_container) != null) {
-            mTwoPane = true;
-            ((VenueListFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.venue_list))
-                    .setActivateOnItemClick(true);
+        if (savedInstanceState == null) {
+        	mVenueListFragment = new VenueListFragment();
+            getSupportFragmentManager().beginTransaction()
+            		.add(R.id.venue_list_container, mVenueListFragment)
+                	.commit();
+        }else{
+        	mVenueListFragment = ((VenueListFragment) getSupportFragmentManager().findFragmentById(R.id.venue_list_container));
         }
-
+        
     }
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (findViewById(R.id.venue_detail_container) != null && !mTwoPane) {
+            mTwoPane = true;
+            mVenueListFragment.setActivateOnItemClick(true);
+        }
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

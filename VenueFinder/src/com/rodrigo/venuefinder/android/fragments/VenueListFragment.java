@@ -56,8 +56,8 @@ public class VenueListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         mAdapter = new VenueAdapter(getActivity().getApplicationContext(), 0, mState.venueData);
-
         setListAdapter(mAdapter);
     }
     

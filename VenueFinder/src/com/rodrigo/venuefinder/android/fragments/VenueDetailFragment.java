@@ -28,6 +28,7 @@ public class VenueDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         if (getArguments().containsKey(Venue.class.getName())) {
         	mVenue = getArguments().getParcelable(Venue.class.getName());;
         }
