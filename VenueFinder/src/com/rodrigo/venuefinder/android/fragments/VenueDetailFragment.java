@@ -4,11 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,6 +70,32 @@ public class VenueDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.txt_venue_address)).setText(Global.getFullVenueAddress(mVenue, true));
             if(venueSchedules.length() > 0){
             	((TextView) rootView.findViewById(R.id.txt_venue_detail)).setText(venueSchedules.toString());	
+            }
+            if (((TelephonyManager)getActivity().getSystemService(Context.TELEPHONY_SERVICE)).getPhoneType()
+            	    != TelephonyManager.PHONE_TYPE_NONE && mVenue.getPhone() != null){
+            	if(mVenue.getPhone().length() > 0){
+            		((Button) rootView.findViewById(R.id.btn_call)).setVisibility(View.VISIBLE);
+                    ((Button) rootView.findViewById(R.id.btn_call)).setOnClickListener(new OnClickListener() {
+    					@Override
+    					public void onClick(View arg0) {
+    						String uri = "tel:"+mVenue.getPhone();
+    						Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(uri));							                     
+                        	startActivity(dialIntent);
+    					}
+    				});	
+            	}   
+            }
+            if(mVenue.getTicketLink() != null){
+            	if(mVenue.getTicketLink().length() > 0){
+            		((Button) rootView.findViewById(R.id.btn_website)).setVisibility(View.VISIBLE);
+            		((Button) rootView.findViewById(R.id.btn_website)).setOnClickListener(new OnClickListener() {
+    					@Override
+    					public void onClick(View arg0) {
+    						Intent dialIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mVenue.getTicketLink()));							                     
+                        	startActivity(dialIntent);
+    					}
+    				});
+            	}
             }
         }
 

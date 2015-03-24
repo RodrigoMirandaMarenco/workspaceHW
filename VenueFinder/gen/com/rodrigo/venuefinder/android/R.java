@@ -1085,10 +1085,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_share=0x7f090043;
+        public static final int action_share=0x7f090045;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
+        public static final int btn_call=0x7f090042;
+        public static final int btn_website=0x7f090043;
         public static final int checkbox=0x7f09002d;
         public static final int collapseActionView=0x7f090010;
         public static final int default_activity_button=0x7f090028;
@@ -1136,7 +1138,7 @@ containing a value of this type.
         public static final int txt_venue_address=0x7f090040;
         public static final int txt_venue_description=0x7f09003f;
         public static final int txt_venue_detail=0x7f090041;
-        public static final int txt_venue_name=0x7f090042;
+        public static final int txt_venue_name=0x7f090044;
         public static final int up=0x7f090021;
         public static final int useLogo=0x7f09000e;
         public static final int venue_detail_container=0x7f09003c;
@@ -1261,7 +1263,10 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int address=0x7f0a0011;
         public static final int app_name=0x7f0a000d;
+        public static final int call=0x7f0a0013;
+        public static final int go_to_website=0x7f0a0014;
         public static final int name=0x7f0a0010;
+        public static final int no_internet_connection=0x7f0a0012;
         public static final int share=0x7f0a000f;
         public static final int title_venue_detail=0x7f0a000e;
     }

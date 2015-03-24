@@ -1,8 +1,6 @@
 package com.rodrigo.venuefinder.android.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.ShareActionProvider;
@@ -55,7 +53,7 @@ public class VenueDetailActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            NavUtils.navigateUpTo(this, new Intent(this, VenueListActivity.class));
+        	finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

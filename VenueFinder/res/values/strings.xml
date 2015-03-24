@@ -6,5 +6,8 @@
     <string name="share">Share</string>
     <string name="name">Name:</string>
     <string name="address">Address:</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="call">Call</string>
+    <string name="go_to_website">Go to Website</string>
     
 </resources>

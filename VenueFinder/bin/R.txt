@@ -247,10 +247,12 @@ int id action_context_bar 0x7f09001d
 int id action_menu_divider 0x7f090002
 int id action_menu_presenter 0x7f090003
 int id action_mode_close_button 0x7f090024
-int id action_share 0x7f090043
+int id action_share 0x7f090045
 int id activity_chooser_view_content 0x7f090025
 int id always 0x7f09000f
 int id beginning 0x7f090016
+int id btn_call 0x7f090042
+int id btn_website 0x7f090043
 int id checkbox 0x7f09002d
 int id collapseActionView 0x7f090010
 int id default_activity_button 0x7f090028
@@ -298,7 +300,7 @@ int id top_action_bar 0x7f090020
 int id txt_venue_address 0x7f090040
 int id txt_venue_description 0x7f09003f
 int id txt_venue_detail 0x7f090041
-int id txt_venue_name 0x7f090042
+int id txt_venue_name 0x7f090044
 int id up 0x7f090021
 int id useLogo 0x7f09000e
 int id venue_detail_container 0x7f09003c
@@ -351,7 +353,10 @@ int string abc_shareactionprovider_share_with 0x7f0a000c
 int string abc_shareactionprovider_share_with_application 0x7f0a000b
 int string address 0x7f0a0011
 int string app_name 0x7f0a000d
+int string call 0x7f0a0013
+int string go_to_website 0x7f0a0014
 int string name 0x7f0a0010
+int string no_internet_connection 0x7f0a0012
 int string share 0x7f0a000f
 int string title_venue_detail 0x7f0a000e
 int style AppBaseTheme 0x7f0b008b

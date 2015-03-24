@@ -12,6 +12,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 
+import com.rodrigo.venuefinder.android.R;
 import com.rodrigo.venuefinder.android.adapters.VenueAdapter;
 import com.rodrigo.venuefinder.android.api.ApiClient;
 import com.rodrigo.venuefinder.android.model.Venue;
@@ -100,6 +101,9 @@ public class VenueListFragment extends ListFragment {
 			} catch (IllegalStateException e) {
 				venuesData = null;
 			}
+        }else{
+            setListShown(true);
+        	setEmptyText(getString(R.string.no_internet_connection));
         }
         mIsDownloadInProgress = false;
     }
