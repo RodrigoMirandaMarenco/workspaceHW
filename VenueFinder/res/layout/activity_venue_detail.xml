@@ -3,5 +3,5 @@
     android:id="@+id/venue_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.rodrigo.venuefinder.android.activities.VenueDetailActivity"
+    tools:context="com.phunware.homework.android.activities.VenueDetailActivity"
     tools:ignore="MergeRootFrame" />

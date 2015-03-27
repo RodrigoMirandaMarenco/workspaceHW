@@ -7,7 +7,7 @@
     android:baselineAligned="false"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context="com.rodrigo.venuefinder.android.activities.VenueListActivity" >
+    tools:context="com.phunware.homework.android.activities.VenueListActivity" >
 
     <FrameLayout
 	    android:id="@+id/venue_list_container"

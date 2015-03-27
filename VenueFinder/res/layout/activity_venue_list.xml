@@ -5,5 +5,5 @@
  	android:layout_width="match_parent"
  	android:layout_height="match_parent"
  	android:padding="0dp"
-    tools:context="com.rodrigo.venuefinder.android.VenueListActivity"
+    tools:context="com.phunware.homework.android.activities.VenueListActivity"
     tools:layout="@android:layout/list_content" />
