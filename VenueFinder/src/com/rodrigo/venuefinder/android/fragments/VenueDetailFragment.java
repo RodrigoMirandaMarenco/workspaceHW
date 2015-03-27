@@ -9,8 +9,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -18,8 +23,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rodrigo.venuefinder.android.Global;
 import com.rodrigo.venuefinder.android.R;
+import com.rodrigo.venuefinder.android.adapters.VenueAdapter;
 import com.rodrigo.venuefinder.android.model.Schedule;
 import com.rodrigo.venuefinder.android.model.Venue;
 import com.squareup.picasso.Picasso;
@@ -39,10 +44,26 @@ public class VenueDetailFragment extends Fragment {
         	mVenue = getArguments().getParcelable(Venue.class.getName());;
         }
     }
-
+    
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    	super.onCreateOptionsMenu(menu, inflater);
+    	inflater.inflate(R.menu.action_bar_share_menu, menu);
+    	if (menu != null && mVenue != null) {
+            MenuItem item = menu.findItem(R.id.action_share);
+            item.setVisible(true);
+            ShareActionProvider myShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.name) + " " + mVenue.getName() + "; " + getString(R.string.address) + " " + VenueAdapter.getFullVenueAddress(mVenue, false));
+            shareIntent.setType("text/plain");
+            myShareActionProvider.setShareIntent(shareIntent);
+        }
+    }
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+    	setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_venue_detail, container, false);
 
         ImageView imgVenue = ((ImageView) rootView.findViewById(R.id.img_venue));
@@ -67,7 +88,7 @@ public class VenueDetailFragment extends Fragment {
             }
             
             ((TextView) rootView.findViewById(R.id.txt_venue_description)).setText(mVenue.getName());
-            ((TextView) rootView.findViewById(R.id.txt_venue_address)).setText(Global.getFullVenueAddress(mVenue, true));
+            ((TextView) rootView.findViewById(R.id.txt_venue_address)).setText(VenueAdapter.getFullVenueAddress(mVenue, true));
             if(venueSchedules.length() > 0){
             	((TextView) rootView.findViewById(R.id.txt_venue_detail)).setText(venueSchedules.toString());	
             }

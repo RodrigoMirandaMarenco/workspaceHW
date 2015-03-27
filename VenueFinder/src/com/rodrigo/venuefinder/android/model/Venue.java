@@ -184,7 +184,6 @@ public class Venue implements Parcelable{
 		dest.writeString(city);
 		dest.writeInt(id);
 		dest.writeString(tollfreephone);
-//		dest.writeParcelable((Parcelable) schedule, flags);
 		dest.writeTypedList(schedule);
 		dest.writeString(address);
 		dest.writeString(imageUrl);

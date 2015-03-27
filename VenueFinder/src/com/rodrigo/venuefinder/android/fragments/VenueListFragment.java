@@ -25,7 +25,7 @@ public class VenueListFragment extends ListFragment {
 
     private static class ActivityState {
         private int nextPage = 0;
-
+        
         private List<Venue> venueData = new ArrayList<Venue>();
     }
     

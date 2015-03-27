@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.rodrigo.venuefinder.android.Global;
 import com.rodrigo.venuefinder.android.R;
 import com.rodrigo.venuefinder.android.model.Venue;
 
@@ -39,7 +38,7 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
 
         Venue venue = getItem(position);
         holder.name.setText(venue.getName());
-        holder.address.setText(Global.getFullVenueAddress(venue, false));
+        holder.address.setText(getFullVenueAddress(venue, false));
 
         return view;
     }
@@ -48,4 +47,39 @@ public class VenueAdapter extends ArrayAdapter<Venue> {
         public TextView name;
         public TextView address;
     }
+    
+    /**
+     * Returns a full address string using all the venue's details.
+     * <p>
+     * If the setZipCode parameter is false, a new line is added to the  
+     * string instead of the Zip Code.
+     *
+     * @param  venueItem  the venue to get the address from.
+     * @param  setZipCode whether or not to set the Zip Code.
+     * @return      the full address string.
+     */
+    public static String getFullVenueAddress(Venue venueItem, boolean setZipCode){
+    	String fullAddress = "";
+    	if(venueItem.getAddress() != null)
+    		fullAddress = venueItem.getAddress();
+    	
+    	String space;
+    	if(setZipCode)
+    		space = "\n";
+    	else
+    		space = ", ";
+
+    	if(venueItem.getCity() != null)
+    		fullAddress = fullAddress + space + venueItem.getCity();
+    	if(venueItem.getState() != null)
+    		fullAddress = fullAddress + ", " + venueItem.getState();
+    	
+    	if(setZipCode){
+        	if(venueItem.getZip() != null)
+        		fullAddress = fullAddress + " " + venueItem.getZip();	
+    	}
+    	
+    	return fullAddress;
+    }
+    
 }
